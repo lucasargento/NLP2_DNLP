@@ -1,0 +1,16 @@
+transformers
+Pillow
+torch
+groq
+streamlit
+langchain
+langchain_core
+langchain_groq
+numpy
+pinecone
+sentence-transformers
+openai
+datasets
+pinecone-text
+tqdm
+IPython
