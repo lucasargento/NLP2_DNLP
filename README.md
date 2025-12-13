@@ -38,20 +38,51 @@ TPS/
 |----|-------------|
 | **TP1 — TinyGPT con MoE** | Implementación simplificada estilo GPT con *Mixture of Experts* y pruebas correspondientes. |
 | **TP2 — RAG: Chatbot sobre tu CV** | Chatbot con Retrieval-Augmented Generation usando embeddings, VectorDB (Chroma) y Streamlit para interactuar con tu CV. |
+| **TP3 — Sistema Multi-Agente para CVs** | Sistema de agentes RAG que permite consultar múltiples CVs (hasta 3). Cada integrante tiene su propio agente especializado con detección inteligente de personas y soporte para consultas comparativas. |
 
 ---
 
-## ▶️ Cómo ejecutar el TP2 (Chatbot RAG)
+## ▶️ Cómo ejecutar los Trabajos Prácticos
 
-### 🔧 Requisitos
+### TP2 — Chatbot RAG sobre tu CV
 
+#### 🔧 Requisitos
 - Python **3.10 — 3.12**
 - **OpenAI API Key**
 - Tu CV en PDF (o usar el default incluido)
 
-### 🚀 Pasos
+#### 🚀 Pasos
+1. Navegar a la carpeta: `cd TPs/TP2`
+2. Crear entorno virtual: `python -m venv .venv`
+3. Activar entorno: `source .venv/bin/activate` (Windows: `.venv\Scripts\activate`)
+4. Instalar dependencias: `pip install -r requirements.txt`
+5. Ejecutar: `streamlit run app.py`
 
-1. **Clonar el repo**
-2. Generar un venv:
-3. instalar requirements.txt
-4. streamlit run app.py
+---
+
+### TP3 — Sistema Multi-Agente para Consulta de CVs
+
+#### 🔧 Requisitos
+- Python **3.10 — 3.12**
+- **OpenAI API Key**
+- CVs en formato PDF (hasta 3 integrantes del equipo)
+
+#### 🚀 Pasos
+1. Navegar a la carpeta: `cd TPs/TP3`
+2. Crear entorno virtual: `python -m venv .venv`
+3. Activar entorno: `source .venv/bin/activate` (Windows: `.venv\Scripts\activate`)
+4. Instalar dependencias: `pip install -r requirements.txt`
+5. Ejecutar: `streamlit run app.py`
+
+#### ✨ Características del TP3
+- **Multi-Agente**: Hasta 3 agentes, uno por integrante del equipo
+- **Detección Inteligente**: Identifica automáticamente qué persona(s) se mencionan en las queries
+- **Consultas Comparativas**: Para preguntas como "¿quién es el mejor fit para...?", usa automáticamente todos los CVs disponibles
+- **Agente por Defecto**: Si no se menciona ninguna persona, usa el agente del alumno
+- **Combinación de Contextos**: Fusiona información de múltiples CVs cuando se consultan varias personas
+
+#### 💡 Ejemplos de Uso
+- `"¿Qué experiencia tiene Lucas?"` → Usa solo el agente de Lucas
+- `"¿Quién es el mejor fit para programación?"` → Compara automáticamente todos los CVs
+- `"Compara las habilidades de Juan y María"` → Combina contextos de ambos CVs
+- `"¿Qué tecnologías usa?"` → Usa agente por defecto (sin mencionar nombre)
